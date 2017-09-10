@@ -3,5 +3,5 @@
   $Link = $_GET['url'];
 ?>
 <script>
-  window.location.href =  "<?= 'http://examen.aaronvanleijenhorst.xyz'.$Link ?>";
+  window.location.href =  "<?= $Link ?>";
 </script>

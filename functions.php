@@ -6,7 +6,7 @@
 //This function is used to compare the users password with the inserted password using the email as their key.
 //It takes a password and email as it's arguments.
 function checkPassword($password, $email){
-  session_start();
+  // session_start();
   $wachtwoord = $password;
   require("db_connect.php");
   if($getPassword = mysqli_prepare($connection, "SELECT US.passwordHash, U.userID, U.name from UserSecurity as US, User as U WHERE U.userID = US.userID and U.email = ?")){
@@ -15,13 +15,13 @@ function checkPassword($password, $email){
     mysqli_stmt_bind_result($getPassword, $passwordHash, $userID, $firstname);
     while(mysqli_stmt_fetch($getPassword)){
       if($wachtwoord == $passwordHash){
-        if(isset($_SESSION['cartProducts'])){
+        if(isset($_SESSION['cartProducts']) && $_SESSION['cartProducts'] != ""){
           foreach($_SESSION['cartProducts'] as $cartProduct){
             $query = "SELECT I.itemID FROM Item as I, Product as P, CartItems as CA WHERE CA.itemID != I.itemID AND P.productID = {$cartProduct} AND P.productID = I.productID Limit {$_SESSION['cart'][$cartProduct]}";
-            $result = mysqli_query($connection, $query);
+            $result = mysqli_query($connection2, $query) or die(mysqli_error($connection));
             foreach($result as $row){
               $query = "UPDATE Item SET status='usable' WHERE itemID = {$row['itemID']}";
-              $result = mysqli_query($connection, $query);
+              $result = mysqli_query($connection2, $query) or die(mysqli_error($connection));
             }
           }
           $_SESSION['cartProducts'] = "";
@@ -30,13 +30,11 @@ function checkPassword($password, $email){
         $_SESSION['userinfo']['name'] = $firstname;  //Sets name of the user in the session.
         $_SESSION['userinfo']['userID'] = $userID;   //Sets the userID of the user in the session.
         $_SESSION['userinfo']['email'] = $email;     //Sets the email of the user in the session.
-        $query = "SELECT * FROM UserRoles WHERE userID = {$userID}";
-        $result = mysqli_query($connection, $query);
-        $count = 0;
-        foreach($result as $row){
-          $_SESSION['userinfo']['role'][$count] = $row['role'];
-          $count++;
-        }
+        // $query = "SELECT * FROM UserRoles WHERE userID = {$userID}";
+        // $result = mysqli_query($connection2, $query) or die (mysqli_error($connection));
+        // foreach($result as $row){
+        //   // $_SESSION['userinfo']['role'][count($_SESSION['userinfo']['role'])] = $row['role'];
+        // }
         return true;
       }
       else{
@@ -61,15 +59,23 @@ function prepared_num_rows($query){
 function hasRole($role){
   // session_start();
   require("db_connect.php");
-  if($getRole = mysqli_prepare($connection, "SELECT * FROM UserRoles WHERE role = ? AND userID = ?")){
-    mysqli_stmt_bind_param($getRole, 'si', $role, $_SESSION['userinfo']['userID']);
-    mysqli_stmt_execute($getRole);
-    $numRows = prepared_num_rows($getRole);
+  // if($getRole = mysqli_prepare($connection, "SELECT * FROM UserRoles WHERE role = ? AND userID = ?")){
+  //   mysqli_stmt_bind_param($getRole, 'si', $role, $_SESSION['userinfo']['userID']);
+  //   mysqli_stmt_execute($getRole);
+  //   $numRows = prepared_num_rows($getRole);
+  //   if($numRows > 0){
+  //     return true;
+  //   }
+  //   else{
+  //     return false;
+  //   }
+  // }
+  if(isset($_SESSION['userinfo']['userID']) && $_SESSION['userinfo']['userID'] != ""){
+    $query = "SELECT * FROM UserRoles WHERE userID = {$_SESSION['userinfo']['userID']} AND role = '{$role}'";
+    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+    $numRows = mysqli_num_rows($result);
     if($numRows > 0){
       return true;
-    }
-    else{
-      return false;
     }
   }
 }
