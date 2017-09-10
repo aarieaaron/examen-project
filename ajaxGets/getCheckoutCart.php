@@ -22,7 +22,7 @@ if(isset($_SESSION['userinfo']['userID'])){
           $result = mysqli_query($connection, $query);
           $givenMessage = false;
           foreach($result as $row){
-            $counter == $row['counter'];
+            $counter = $row['counter'];
             if($row['counter'] >= 2){
               ?>
               <script>

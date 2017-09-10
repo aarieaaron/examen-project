@@ -15,7 +15,7 @@ if(isset($_SESSION['userinfo']['userID'])){
   }
 }
 else{
-  if(isset($_SESSION['cart'])){
+  if(isset($_SESSION['cart']) && $_SESSION['cart'] != ""){
     $totalProducts = 0;
     foreach($_SESSION['cartProducts'] as $cartProducts){
       $totalProducts += $_SESSION['cart'][$cartProducts];
@@ -30,6 +30,9 @@ else{
       echo "Totale Prijs &#8364;".$totalPrice;
     }
     echo "<input type='hidden' value='".strtotime($_SESSION['cart']['lastModified'])."' id='lastModified'>";
+  }
+  else{
+    echo "0 PRODUCT(EN) IN UW WINKELMANDJE<br>";
   }
 }
 ?>
