@@ -19,7 +19,7 @@
 }
 .header{
   height: 150px;
-  background:url("/images/header2.jpg");
+  background:url("../images/header2.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0% 90%;
@@ -120,7 +120,7 @@
   color: red;
 }
 #employeeButton{
-  background: url("/images/employee.png");
+  background: url("../images/employee.png");
   background-size: 48px 48px;
   height: 48px;
   width: 48px;
@@ -129,7 +129,7 @@
   margin-top: 7.5px;
   position: relative;
   right: 0%;
-  background: url("/images/admin.png");
+  background: url("../images/admin.png");
   background-size: 48px 48px;
   height: 48px;
   width: 48px;
