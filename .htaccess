@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+
+RewriteBase /
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^bestelinfo&lang=([\w-]+)$ index.php?content=bestelinfo&lang=$1 [NC,L]
+RewriteRule ^homepage&lang=([\w-]+)$ index.php?content=homepage&lang=$1 [NC,L]
+RewriteRule ^login$ index.php?content=login&state=login [NC,L]
+RewriteRule ^register$ index.php?content=login&state=register [NC,L]
+RewriteRule ^search/([\w-]+)$ index.php?content=search&query=$1 [NC,L]
+RewriteRule ^search/([\w-]+)&filter=([\w-]+)$ index.php?content=search&query=$1&filter=$2 [NC,L]
+RewriteRule ^medewerker/([\w-]+)$ index.php?content=medewerker&function=$1 [NC,L]
+RewriteRule ^admin/([\w-]+)$ index.php?content=admin&function=$1 [NC,L]
+RewriteRule ^category/([\w-]+)$ index.php?content=category&category=$1 [NC,L]
+RewriteRule ^product/([\w-]+)$ index.php?content=product&id=$1 [NC,L]
+RewriteRule ^([\w-]+)$ index.php?content=$1 [NC,L]

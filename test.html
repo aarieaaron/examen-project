@@ -1,0 +1,170 @@
+<script src="https://code.jquery.com/jquery-2.2.4.js"> </script>
+<form action="" method="post">
+                            <table>
+                                <th>Product toevoegen</th>
+                                <tr>
+                                    <td>Titel: </td>
+                                    <td><input type="text" name="titel"></td>
+                                </tr>
+                                <tr>
+                                    <td>Foto's: </td>
+                                    <td><div id="resultPhoto"></div></td>
+                                    <td>
+                                    <div id="wrapper">
+<!--                                         <input type="file">-->
+                                         <div id="drop-area">
+                                          <h3 class="drop-text">Drag and Drop Images Here</h3>
+                                         </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Omschrijving: </td>
+                                    <td>
+                                        <textarea name="omschrijving"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Prijs: </td>
+                                    <td><input type="number" name="price"></td>
+                                </tr>
+                                <tr>
+                                    <td>Artikelgroep: </td>
+                                    <td><select>
+                                            <option>Hanglampen</option>
+                                            <option>Plafonnieres</option>
+                                            <option>Lichtspots</option>
+                                            <option>Vloer- en leeslampen</option>
+                                            <option>Tafel- en bureaulampen</option>
+                                            <option>Wandlampen</option>
+                                            <option>Badkamerverlichting</option>
+                                            <option>Overig</option>
+                                        </select></td>
+                                </tr>
+                                <th>Specificaties</th>
+                                <tr>
+                                    <td>Showroom</td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stijl</td>
+                                    <td>
+                                        <select>
+                                            <option value="nieuw"></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Vorm</td>
+                                    <td>
+                                        <select id="spec_vorm" name="spec_vorm">
+                                            <option value="">Selecteer een spec</option>
+                                            <option value="nieuw">Nieuw</option>
+                                        </select>
+                                    </td>
+                                    <td>Toevoegen</td>
+                                    <td><input type="text" id="nieuw_vorm"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ruimte</td>
+                                    <td>
+                                        <select id="spec_ruimte" name="spec_ruimte">
+                                            <option value="">Selecteer een spec</option>
+                                            <option value="nieuw">Nieuw</option>
+                                        </select>
+                                    </td>
+                                    <td>Toevoegen</td>
+                                    <td><input type="text" id="nieuw_ruimte"></td>
+                                </tr>
+                                <tr>
+                                    <td>Functie</td>
+                                    <td>
+                                        <select id="spec_functie" name="spec_functie">
+                                            <option value="">Selecteer een spec</option>
+                                            <option value="nieuw">Nieuw</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Technologie lichtbron</td>
+                                    <td>
+                                        <select id="spec_tech" name="spec_tech">
+                                            <option value="">Selecteer een spec</option>
+                                            <option value="nieuw">Nieuw</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Aantal lichtbronnen</td>
+                                    <td>
+                                        <select id="spec_aantal_lichtbronnen" name="spec_aantal_lichtbronnen">
+                                            <option value="">Selecteer een spec</option>
+                                            <option value="nieuw">Nieuw</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Energielabel</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Dimbaar</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Bediening op lamp</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>IP-waarde</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Materiaal</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Kleur</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </form>
+<script>
+$("select").change(function(){
+  var target = $(this).parent().nextAll(':lt(2)');
+  if($(this).val() == "nieuw"){
+    $(target).show();
+  }
+  else{
+    $(target).hide();
+  }
+});
+$("button").click(function(){
+  function parseAjax(info, func, target){
+    $.ajax({
+      url: target,
+      type: "POST",
+      dataType: "json",
+      data: $.param(info),
+       complete: function(data){
+        if (data) {
+          func(data);
+        }
+    }});
+  }
+  var context = $(this);
+  var data = {};
+  data.action = $(context).attr('id');
+  data.info = $(context).sibling().val();
+  function onComplete(data){
+    var data = {};
+    data.selector = $(context).parents(1).find("select").attr("id");
+    function onGetOptions(data){
+      $(data.selector).html(data.responseText);
+    }
+    parseAjax(data, onGetOptions, "get_spec.php");
+  }
+  parseAjax(data, onComplete, "set_spec.php");
+});
+</script>

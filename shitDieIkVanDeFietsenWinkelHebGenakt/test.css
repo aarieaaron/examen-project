@@ -1,0 +1,802 @@
+@charset "utf-8";
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0px;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+	background-color: #FFFFFF;
+	background-image: url(images/bck.jpg);
+	margin: 0px;
+	background-repeat: repeat-x;
+	background-position: top;
+	background-attachment: fixed;
+}
+table {
+	font-size:xx-small;
+	width:570px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.thrColFixHdr #container {
+	width: 1010px;
+	text-align: left;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-repeat: repeat-y;
+	background-position: top;
+	padding: 0px;
+} 
+.thrColFixHdr #header {
+	height: 130px;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(images/head.png);
+	width: 1010px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+} 
+.thrColFixHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	color: #FF07FF;
+}
+.thrColFixHdr #container #navbar {
+	height: 41px;
+	margin: 0px;
+	background-position: left top;
+	background-repeat: no-repeat;
+	padding: 0px;
+}
+.thrColFixHdr #container #navbar #navigatie-l {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 188px;
+	height: 44px;
+}
+.thrColFixHdr #container #navbar #navigatie-l a {
+	background-image: url(images/klantenservice.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	width: 188px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #990099;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 40px;
+}
+.thrColFixHdr #container #navbar #navigatie-l a:hover {
+	background-image: url(images/klantenservice-dwn.png);
+	background-repeat: no-repeat;
+}
+.thrColFixHdr #container #navbar #navigatie-2 {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 161px;
+	height: 44px;
+}
+.thrColFixHdr #container #navbar #navigatie-2 a {
+	background-image: url(images/nieuws.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	width: 161px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #0066FF;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 40px;
+}
+.thrColFixHdr #container #navbar #navigatie-2 a:hover {
+	background-image: url(images/nieuws-dwn.png);
+}
+.thrColFixHdr #container #navbar #navigatie-3 {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 161px;
+	height: 44px;
+}
+.thrColFixHdr #container #navbar #navigatie-3 a {
+	background-image: url(images/levertijd.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	width: 161px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #0066FF;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 40px;
+}
+.thrColFixHdr #container #navbar #navigatie-3 a:hover {
+	background-image: url(images/levertijd-dwn.png);
+}
+.thrColFixHdr #container #navbar #navigatie-4 {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 161px;
+	height: 44px;
+}
+.thrColFixHdr #container #navbar #navigatie-4 a {
+	background-image: url(images/aanbiedingen.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	width: 161px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #0066FF;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 40px;
+}
+.thrColFixHdr #container #navbar #navigatie-4 a:hover {
+	background-image: url(images/aanbiedingen-dwn.png);
+}
+.thrColFixHdr #container #navbar #navigatie-5 {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 161px;
+	height: 44px;
+}
+.thrColFixHdr #container #navbar #navigatie-5 a {
+	background-image: url(images/bestelinfo.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	width: 161px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #0066FF;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 40px;
+}
+.thrColFixHdr #container #navbar #navigatie-5 a:hover {
+	background-image: url(images/bestelinfo-dwn.png);
+}
+.thrColFixHdr #container #navbar #navigatie {
+	float: left;
+	height: 44px;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	width: 830px;
+}
+.thrColFixHdr #container #navbar #zoekbox  {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 178px;
+	display: block;
+	height: 44px;
+	background-repeat: no-repeat;
+	position: relative;
+	background-image: url(images/zoek.png);
+}
+.thrColFixHdr #container #navbar #zoekbox form  {
+	margin: 0px;
+	padding-top: 8px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 8px;
+}
+
+.thrColFixHdr #container #border {
+	margin: 0px;
+	padding: 0px;
+	background-image: url(images/borderbck.png);
+	background-repeat: repeat-y;
+}
+
+.thrColFixHdr #sidebar1 {
+	float: left; /* since this element is floated, a width must be given */
+	width: 178px;
+	height: 670px;
+	background-image: url(images/sidebar1.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.thrColFixHdr #container #header #headlogo1 {
+	margin: 0px;
+	width: 300px;
+	height: 50px;
+	float: left;
+	padding-top: 20px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+.thrColFixHdr #container #header #headlogo1 img {
+	margin: 0px;
+}
+
+
+.thrColFixHdr #container #header #headlogo2 {
+	margin: 0px;
+	width: 300px;
+	height: 50px;
+	padding-top: 20px;
+	float: right;
+	text-align: right;
+	padding-right: 20px;
+}
+.thrColFixHdr #container #header #headlogo2 img {
+	margin: 0px;
+}
+
+.thrColFixHdr #container #border #sidebar1 h3  {
+	font-size: 14px;
+	background-color: #0066CC;
+	width: 134px;
+	border: 1px solid #333333;
+	color: #33CCFF;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 12px;
+}
+.thrColFixHdr #container #border #sidebar1 .navleft {
+	margin: 0px;
+	width: 158px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #0066FF;
+	border-bottom-color: #0066CC;
+	padding: 0px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-color: #0066FF;
+	border-left-color: #0066CC;
+}
+.thrColFixHdr #container #border #sidebar1 .navleft a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	height: 16px;
+	width: 144px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	text-decoration: none;
+	color: #FFFFFF;
+	display: block;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 1px;
+	border: 1px solid #00458A;
+	background-color: #0066CC;
+}
+
+.thrColFixHdr #container #border #sidebar1 .navleft a:hover {
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	text-decoration: none;
+	display: block;
+	background-color: #1389FF;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 1px;
+	color: #FFFFFF;
+}
+.thrColFixHdr #container #border #sidebar1 .navleft .artikel {
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #sidebar1 .navleft .artikel a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	height: 16px;
+	width: 144px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	text-decoration: none;
+	color: #333333;
+	display: block;
+	border: 1px solid #2184A5;
+	background-color: #00CCFF;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 1px;
+	font-weight: normal;
+}
+.thrColFixHdr  #container  #border  #sidebar1  .navleft  .artikel  a:hover {
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	text-decoration: none;
+	display: block;
+	border: 1px solid #1F7A98;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 1px;
+	background-color: #00CCFF;
+}
+.thrColFixHdr  #container  #border  #sidebar1  #artikeloverzicht_btm  {
+	margin: 0px;
+	padding: 0px;
+	height: 44px;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.thrColFixHdr #container #border #sidebar1 .navleft p {
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.thrColFixHdr #footer {
+	background-image: url(images/footer.png);
+	background-repeat: no-repeat;
+	height: 40px;
+	margin: 0px;
+	padding: 0px;
+} 
+.thrColFixHdr #footer p {
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	line-height: 30px;
+	height: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #maintop {
+	background-image: url(images/maincontenttop.png);
+	margin: 0px;
+	padding: 0px;
+	height: 15px;
+	width: 642px;
+}
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+}
+.thrColFixHdr #container #border #mainContenttop {
+	background-image: url(images/maincontenttop.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 15px;
+	width: 641px;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #mainContentbttm {
+	background-image: url(images/maincontentbttm.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 15px;
+	width: 641px;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.thrColFixHdr #mainContent {
+	height: 664px;
+	width: 640px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	float: left;
+	padding: 0px;
+} 
+.thrColFixHdr #mainContentInhoud {
+	background-image: url(images/maincontentinhbck.png);
+	background-repeat: repeat-y;
+	background-position: top;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	padding-right: 11px;
+	padding-left: 14px;
+	width: 616px;
+	margin: 0px;
+	position: relative;
+	overflow: visible;
+	}
+
+.thrColFixHdr #container #mainContent h1 {
+	color: #3366FF;
+	margin: 0px;
+	font-size: 18px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #mainContent a {
+	font-size: 14px;
+	text-decoration: underline;
+	color: #0066CC;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.thrColFixHdr #container #border #mainContent #form1 {
+	margin: 0px;
+	padding: 0px;
+	width: 540px;
+}
+.thrColFixHdr #container #border #mainContent #form1 table {
+	padding: 0px;
+	width: 520px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.thrColFixHdr #container #border #mainContent p {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.thrColFixHdr #container #border #mainContent .eC_ShoppingCart {
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr  #container #sidebar2 {
+	float: right; /* since this element is floated, a width must be given */
+	width: 181px;
+	margin: 0px;
+	height: 670px;
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 0px;
+	background-image: url(images/sidebar2.png);
+}
+
+.thrColFixHdr #container #sidebar2 p {
+	font-size: 12px;
+}
+.thrColFixHdr #container #border #sidebar2 .extra {
+	width: 170px;
+	height: 224px;
+	padding-top: 5px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	margin: 0px;
+}
+.thrColFixHdr #container #border #sidebar2 .extra h3 {
+	font-size: 14px;
+	margin: 0px;
+	background-color: #00CC66;
+	width: 128px;
+	border: 1px solid #333333;
+	color: #00FF99;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 12px;
+}
+.thrColFixHdr  #container  #border  #sidebar2  .extra  #winkelmandje  {
+	background-color: #CFE8FC;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	width: 136px;
+	border: 1px solid #92ACEB;
+}
+.thrColFixHdr #container #border #sidebar2 .extra #winkelmandjemid {
+	margin: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 11px;
+	padding-right: 0px;
+}
+.thrColFixHdr #container #border #sidebar2 .extra #winkelmandje p {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.thrColFixHdr #container #border #sidebar2 .extra #winkelmandje #leeg {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	height: 30px;
+}
+.thrColFixHdr #container #border #sidebar2 .extra #winkelmandjebtm {
+	background-repeat: no-repeat;
+	height: 44px;
+	margin: 0px;
+	padding-top: 8px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.thrColFixHdr  #container  #border  #sidebar2  .extra  #winkelmandjebtm  a {
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr  #container  #border  #sidebar2  .extra  #winkelmandjebtm  img {
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 8px;
+}
+.thrColFixHdr  #container  #border  #sidebar2  .extra  #winkelmandjebtm  a:hover {
+	color: #A10000;
+}
+.eC_OrderSummary{
+	padding: 0px;
+	width: 137px;
+	margin: 0px;
+}
+.eC_CartSummary{
+	padding: 0px;
+	border: 1px solid #333333;
+	width: 136px;
+	margin: 0px;
+}
+.eC_Subtotal{
+	background-color:#F1F0EE; /* Global_Gray_Light */
+}
+.eC_OrderSummary td.eC_SummaryLabel{
+	text-align:left;
+	font-weight:bold;
+	color: #353C48;
+	border-top:solid 1px #BABDC2; /* Neutral_Dark */
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	margin: 0px;
+}
+.eC_OrderSummary td{
+	text-align:right;
+	border-top:solid 1px #CCD0D6; /* Neutral_Medium */
+	padding-top: 3px;
+	padding-right: 14px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+td.eC_IndividualCharge{
+	font-weight:normal;
+	text-align:left;
+}
+.thrColFixHdr #container #border #contentbttm {
+	background-color: #000;
+	padding: 0px;
+	height: 15px;
+	width: 600px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	display: block;
+}
+
+.eC_SummaryFooter{
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	color: #F00;
+}
+.eC_SummaryFooter td{
+	background-color: #ADF; /* Accent_12 */
+	width: 15%;
+}
+.thrColFixHdr #container #border #mainContent h2 {
+	margin: 0px;
+	padding-top: 20px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.thrColFixHdr #container #border #footer p {
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #footer a {
+	text-decoration: none;
+	color: #333333;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #footer a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.thrColFixHdr #container #border #sidebar2 .extra #winkelmandjetop {
+	height: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #sidebar1 #Artikeloverzicht {
+	margin: 0px;
+	padding: 0px;
+	height: 35px;
+	background-repeat: no-repeat;
+}
+#artikeloverzicht_mid {
+	background-repeat: repeat-y;
+	width: 160px;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 8px;
+}
+.thrColFixHdr #container #border #mainContent #contactform {
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+}
+.knop1 {
+	background-image: url(beheer/knoppen/knop1.png);
+	margin: 0px;
+	height: 34px;
+	width: 168px;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Verdana, Geneva, sans-serif;
+	float: left;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 18px;
+}
+.knop {
+	background-image: url(beheer/knoppen/knop.png);
+	margin: 0px;
+	height: 34px;
+	width: 151px;
+	display: block;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Verdana, Geneva, sans-serif;
+	float: left;
+}
+.thrColFixHdr #container #border #sidebar1 div  {
+	padding-top: 8px;
+}
+.thrColFixHdr #container #header img {
+	margin-top: 18px;
+}
+.thrColFixHdr #container #border #containerbttm {
+	height: 99px;
+	background-image: url(images/containercontentbttm.png);
+	width: 1010px;
+}
+.thrColFixHdr #container #border #containerbttm #text1 {
+	width: 168px;
+	margin: 0px;
+	padding-top: 10px;
+	height: 70px;
+	padding-left: 12px;
+	float: left;
+}
+.thrColFixHdr #container #border #containerbttm #text2 {
+	margin: 0px;
+	height: 85px;
+	width: 620px;
+	float: left;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.thrColFixHdr #container #border #containerbttm #text3 {
+	width: 170px;
+	float: left;
+	padding-top: 10px;
+	height: 70px;
+	padding-left: 10px;
+}
+.thrColFixHdr #container #border #containerbttm p{
+	font-size: 12px;
+	margin: 0px;
+}
+.thrColFixHdr #container #border #sidebar1 div img {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+.thrColFixHdr #container #border #mainContent h5 {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+.thrColFixHdr #container #border #sidebar2 .contactnr {
+	height: 120px;
+	padding-left: 12px;
+	font-size: 12px;
+	margin: 0px;
+	padding-top: 120px;
+	text-decoration: none;
+}
+.thrColFixHdr #container #border #sidebar2 .contactnr a {
+	color: #1EA5FF;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 20px;
+}

@@ -1,0 +1,153 @@
+
+<div class="passwordRequirements col-md-4">
+  <p id="minimumCharacters"><i class="fa fa-times" aria-hidden="true"></i> At least 8 characters long </p>
+  <p id="minimumUpperCaseCharacters"><i class="fa fa-times" aria-hidden="true"></i> At least one uppercase leter </p>
+  <p id="minimumLowerCaseCharacters"> <i class="fa fa-times" aria-hidden="true"></i> At least one lower leter </p>
+  <p id="minimumNumbers"><i class="fa fa-times" aria-hidden="true"></i> At least one numerical character </p>
+  <p id="passwordsMatch"><i class="fa fa-times" aria-hidden="true"></i> Passwords match </p>
+</div>
+<script>
+
+$(window).keyup(function(){
+  var x = $("#email").val();
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        // console.log("Not a valid e-mail address");
+        $("#email").css("background-color", "rgba(255, 120, 120, 0.3)");
+        validEmail = false;
+        return false;
+    }
+    else{
+      $("#email").css("background-color", "rgba(120, 255, 120, 0.3)");
+      validEmail = true;
+    }
+});
+$(".password").keyup(function(){
+  var str = $("#password").val();
+for(var i = 0, len = str.length, capitalCount=0, ch; i < len; ++i)
+{
+	ch = str.charAt(i);
+	if(ch >= 'A' && ch <= 'Z') ++capitalCount;
+}
+for(var i = 0, len = str.length, lowerCount=0, ch; i < len; ++i)
+{
+	ch = str.charAt(i);
+	if(ch >= 'a' && ch <= 'z') ++lowerCount;
+}
+for(var i = 0, len = str.length, numberCount=0, ch; i < len; ++i)
+{
+	ch = str.charAt(i);
+	if(ch >= '0' && ch <= '9') ++numberCount;
+}
+var stringLength = str.length;
+if(stringLength >= 8){
+  $("#minimumCharacters").css("color", "rgb(0,255,0)");
+  charactersCheck = true;
+  $("#minimumCharacters").children("i").removeClass("fa fa-times").addClass("fa fa-check");
+}
+else{
+  $("#minimumCharacters").css("color", "rgb(255,60,60)");
+  charactersCheck = false;
+  $("#minimumCharacters").children("i").removeClass("fa fa-check").addClass("fa fa-times");
+}
+
+if(capitalCount >= 1){
+  $("#minimumUpperCaseCharacters").css("color", "rgb(0,255,0)");
+  uppercaseCheck = true;
+  $("#minimumUpperCaseCharacters").children("i").removeClass("fa fa-times").addClass("fa fa-check");
+}
+else{
+  $("#minimumUpperCaseCharacters").css("color", "rgb(255,60,60)");
+  uppercaseCheck = false;
+  $("#minimumUpperCaseCharacters").children("i").removeClass("fa fa-check").addClass("fa fa-times");
+}
+
+if(lowerCount >= 1){
+  $("#minimumLowerCaseCharacters").css("color", "rgb(0,255,0)");
+  lowercaseCheck = true;
+  $("#minimumLowerCaseCharacters").children("i").removeClass("fa fa-times").addClass("fa fa-check");
+}
+else{
+  $("#minimumLowerCaseCharacters").css("color", "rgb(255,60,60)");
+  lowercaseCheck = false;
+  $("#minimumLowerCaseCharacters").children("i").removeClass("fa fa-check").addClass("fa fa-times");
+}
+
+if(numberCount >= 1){
+  $("#minimumNumbers").css("color", "rgb(0,255,0)");
+  numbersCheck = true;
+  $("#minimumNumbers").children("i").removeClass("fa fa-times").addClass("fa fa-check");
+}
+else{
+  $("#minimumNumbers").css("color", "rgb(255,60,60)");
+  numbersCheck = false;
+  $("#minimumNumbers").children("i").removeClass("fa fa-check").addClass("fa fa-times");
+}
+
+if($("#password").val() == $("#passwordCheck").val() && $("#password").val() != ""){
+  $("#passwordsMatch").css("color", "rgb(0,255,0)");
+  passwordsMatch = true;
+  $("#passwordCheck").css("background-color", "rgba(120, 255, 120, 0.3)");
+  $("#passwordsMatch").children("i").removeClass("fa fa-times").addClass("fa fa-check");
+}
+else if($("#password").val() != $("#passwordCheck").val()){
+  $("#passwordsMatch").css("color", "rgb(255,60,60)");
+  passwordsMatch = false;
+  $("#passwordCheck").css("background-color", "rgba(255, 120, 120, 0.3)");
+  $("#passwordsMatch").children("i").removeClass("fa fa-check").addClass("fa fa-times");
+}
+if(numbersCheck == true && lowercaseCheck == true && uppercaseCheck == true && charactersCheck == true){
+  passwordCorrect = true;
+  $(".passwordRequirements").css("border", "1px solid rgba(120,255,120, 0.4)");
+}
+else{
+  passwordCorrect = false;
+}
+
+if(passwordCorrect == true){
+  $("#password").css("background-color", "rgba(120, 255, 120, 0.3)");
+}
+else if(passwordCorrect == false){
+  $("#password").css("background-color", "rgba(255, 120, 120, 0.3)");
+}
+
+});
+  $("#showPassword").mouseenter(function(){
+      $("#showPassword").css('color', 'blue');
+      $("#password").attr('type', 'text');
+  });
+
+  $("#showPassword").mouseleave(function(){
+      $("#password").attr('type', 'password');
+      $("#showPassword").css('color', 'black');
+  });
+  $("#showPasswordCheck").mouseenter(function(){
+      $("#showPasswordCheck").css('color', 'blue');
+      $("#passwordCheck").attr('type', 'text');
+  });
+
+  $("#showPasswordCheck").mouseleave(function(){
+      $("#passwordCheck").attr('type', 'password');
+      $("#showPasswordCheck").css('color', 'black');
+  });
+$(window).keyup(function(){
+  if(passwordsMatch == true && numbersCheck == true && lowercaseCheck == true && uppercaseCheck == true && charactersCheck == true && validEmail == true && enteredUsername == true){
+    // console.log("passwordsMatch: " + passwordsMatch + ", numbersCheck: " + numbersCheck + ", lowercaseCheck: " + lowercaseCheck + ", uppercaseCheck: " + uppercaseCheck + ", charactersCheck: " + charactersCheck + ", enteredUsername: " + enteredUsername + ", validEmail: " + validEmail);
+    allowProgress = true;
+    passwordCorrect = true;
+  }
+  else{
+    allowProgress = false;
+    passwordCorrect = false;
+  }
+  if(allowProgress == true){
+    $("#register").show();
+  }
+  else{
+    $("#register").hide();
+  }
+});
+
+
+</script>
