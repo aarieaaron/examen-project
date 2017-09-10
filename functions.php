@@ -57,19 +57,7 @@ function prepared_num_rows($query){
 //This function is used to check if a given user has a specific role to give them permissions.
 //It takes a string as an argument, this string has to be a previously known role else it will return false by default.
 function hasRole($role){
-  // session_start();
   require("db_connect.php");
-  // if($getRole = mysqli_prepare($connection, "SELECT * FROM UserRoles WHERE role = ? AND userID = ?")){
-  //   mysqli_stmt_bind_param($getRole, 'si', $role, $_SESSION['userinfo']['userID']);
-  //   mysqli_stmt_execute($getRole);
-  //   $numRows = prepared_num_rows($getRole);
-  //   if($numRows > 0){
-  //     return true;
-  //   }
-  //   else{
-  //     return false;
-  //   }
-  // }
   if(isset($_SESSION['userinfo']['userID']) && $_SESSION['userinfo']['userID'] != ""){
     $query = "SELECT * FROM UserRoles WHERE userID = {$_SESSION['userinfo']['userID']} AND role = '{$role}'";
     $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
